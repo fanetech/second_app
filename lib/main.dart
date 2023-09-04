@@ -25,56 +25,76 @@ class soir extends StatefulWidget {
 }
 
 class _soirState extends State<soir> {
-  var info = "Hello World";
-  var text1 = "test1";
-  var text2 = "test2";
+  String value = '';
+  var info = 'Bienvenue';
+  int val1 = 0;
+  int val2 = 0;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    info = "Bienvenue";
-  }
-
-  void click1() {
+  void change1(int? t) {
     setState(() {
-      text1 = "click text1";
+      val1 = t!;
     });
   }
 
-  void click2(String t) {
+  void change2(int? s) {
     setState(() {
-      text2 = t;
+      val2 = s!;
     });
+  }
+
+  Widget radio() {
+    List<Widget> buttonRadio = List.empty(growable: true);
+
+    for (int i = 0; i < 4; i++) {
+      buttonRadio.add(Radio(value: i, groupValue: val1, onChanged: change1));
+    }
+    Column column = Column(children: buttonRadio);
+
+    return column;
+  }
+
+  Widget radioList() {
+    List<Widget> buttonRadio = List.empty(growable: true);
+
+    for (int i = 0; i < 4; i++) {
+      buttonRadio.add(RadioListTile(
+        value: i,
+        groupValue: val2,
+        onChanged: change2,
+        activeColor: Colors.red,
+        controlAffinity: ListTileControlAffinity.platform,
+        title: Text('choose $i'),
+      ));
+    }
+    Column column = Column(children: buttonRadio);
+
+    return column;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(info)),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            print("floating btn pressed");
+          },
+          backgroundColor: Colors.teal,
+          label: const Text(
+            'Add',
+            style: TextStyle(color: Colors.white),
+          ),
+          icon: const Icon(Icons.add),
+        ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () => click1(),
-                child: const Text('btn1',
-                    style: TextStyle(fontSize: 20, color: Colors.white))),
-            Text(
-              text1,
-              style: const TextStyle(color: Colors.red),
+            const Text(
+              'Bienvenue chez fanetech',
+              style: TextStyle(color: Colors.black, fontSize: 20),
             ),
-            const Divider(
-              height: 10,
-            ),
-            ElevatedButton(
-                onPressed: () => click2("click text2"),
-                child: const Text('btn2',
-                    style: TextStyle(fontSize: 20, color: Colors.green))),
-            Text(
-              text2,
-              style: const TextStyle(color: Colors.green),
-            ),
+            radio(),
+            radioList()
           ],
         ));
   }
