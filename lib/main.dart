@@ -45,11 +45,32 @@ class _soirState extends State<soir> {
         title: Text(info),
         backgroundColor: Colors.teal,
         centerTitle: true,
-        leading: const Icon(Icons.search),
+        // leading: const Icon(Icons.search),
         actions: [
           IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: handleGoback,
+          )
+        ],
+      ),
+      drawer: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            child: Text("Menu"),
+            decoration: BoxDecoration(color: Color.fromARGB(103, 70, 68, 68)),
+          ),
+          ListTile(
+            title: const Text("Home", style: TextStyle(color: Colors.teal)),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: const Text("About"),
+            onTap: () {
+              Navigator.pop(context);
+            },
           )
         ],
       ),
@@ -65,7 +86,7 @@ class _soirState extends State<soir> {
         icon: const Icon(Icons.add),
       ),
       body: const Center(
-        child: (false) ? InputText() : BtnSwitch(),
+        child: (true) ? InputText() : BtnSwitch(),
       ),
     );
   }
