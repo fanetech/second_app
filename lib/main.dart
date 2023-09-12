@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/widgets/appBarBtn.dart';
 import 'package:second_app/widgets/btnChecked.dart';
 import 'package:second_app/widgets/btnRadio.dart';
 import 'package:second_app/widgets/btnSlide.dart';
 import 'package:second_app/widgets/btnSwitch.dart';
 import 'package:second_app/widgets/inputText.dart';
+import 'package:second_app/widgets/sheetBtn.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +31,7 @@ class soir extends StatefulWidget {
 
 class _soirState extends State<soir> {
   String value = '';
+  String value2 = '';
   var info = 'Bienvenue';
   bool goBack = false;
 
@@ -37,6 +40,8 @@ class _soirState extends State<soir> {
       goBack = !goBack;
     });
   }
+
+  void persistantBtnAction(String a) => setState(() => value2 = a);
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +90,25 @@ class _soirState extends State<soir> {
         ),
         icon: const Icon(Icons.add),
       ),
-      body: const Center(
-        child: (true) ? InputText() : BtnSwitch(),
+      persistentFooterButtons: [
+        IconButton(
+            onPressed: () => persistantBtnAction("add"),
+            icon: const Icon(Icons.add)),
+        IconButton(
+            onPressed: () => persistantBtnAction("delete"),
+            icon: const Icon(Icons.delete)),
+      ],
+      body: Column(
+        children: [
+          const Center(
+            child: (true) ? InputText() : BtnSwitch(),
+          ),
+          const Padding(padding: EdgeInsets.only(top: 20)),
+          Text('$value2'),
+          const SheetBtn(),
+        ],
       ),
+      bottomNavigationBar: const AppBarBtn(),
     );
   }
 }
