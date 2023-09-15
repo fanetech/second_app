@@ -37,6 +37,40 @@ class _AppBarBtnState extends State<AppBarBtn> {
     );
   }
 
+  Future<void> info() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                SimpleDialogOption(
+                  child: Text("Oui"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+                // Text('This is a demo alert dialog.'),
+                // Text('Would you like to approve of this message?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Approve'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -46,6 +80,7 @@ class _AppBarBtnState extends State<AppBarBtn> {
         setState(() {
           _id = id;
           _value = 'Current value is $id';
+          info();
         });
       },
     );

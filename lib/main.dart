@@ -3,6 +3,7 @@ import 'package:second_app/widgets/appBarBtn.dart';
 import 'package:second_app/widgets/btnChecked.dart';
 import 'package:second_app/widgets/btnRadio.dart';
 import 'package:second_app/widgets/btnSlide.dart';
+import 'package:second_app/widgets/btnSnackBar.dart';
 import 'package:second_app/widgets/btnSwitch.dart';
 import 'package:second_app/widgets/inputText.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
@@ -34,6 +35,7 @@ class _soirState extends State<soir> {
   String value2 = '';
   var info = 'Bienvenue';
   bool goBack = false;
+  final GlobalKey<ScaffoldState> _sb = GlobalKey<ScaffoldState>();
 
   void handleGoback() {
     setState(() {
@@ -43,9 +45,14 @@ class _soirState extends State<soir> {
 
   void persistantBtnAction(String a) => setState(() => value2 = a);
 
+  // void _snackbar() {
+  //   _sb.currentState.showSnackBar( scnackBar)
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _sb,
       appBar: AppBar(
         title: Text(info),
         backgroundColor: Colors.teal,
@@ -106,6 +113,8 @@ class _soirState extends State<soir> {
           const Padding(padding: EdgeInsets.only(top: 20)),
           Text('$value2'),
           const SheetBtn(),
+          const Padding(padding: EdgeInsets.only(top: 20)),
+          const BtnSnackBar(),
         ],
       ),
       bottomNavigationBar: const AppBarBtn(),
