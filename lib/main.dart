@@ -5,6 +5,7 @@ import 'package:second_app/widgets/btnRadio.dart';
 import 'package:second_app/widgets/btnSlide.dart';
 import 'package:second_app/widgets/btnSnackBar.dart';
 import 'package:second_app/widgets/btnSwitch.dart';
+import 'package:second_app/widgets/datePicker.dart';
 import 'package:second_app/widgets/inputText.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
 
@@ -115,6 +116,8 @@ class _soirState extends State<soir> {
           const SheetBtn(),
           const Padding(padding: EdgeInsets.only(top: 20)),
           const BtnSnackBar(),
+          const Padding(padding: EdgeInsets.only(top: 20)),
+          const DatePicker(),
         ],
       ),
       bottomNavigationBar: const AppBarBtn(),
