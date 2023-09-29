@@ -5,6 +5,7 @@ import 'package:second_app/widgets/btnRadio.dart';
 import 'package:second_app/widgets/btnSlide.dart';
 import 'package:second_app/widgets/btnSnackBar.dart';
 import 'package:second_app/widgets/btnSwitch.dart';
+import 'package:second_app/widgets/cardComponent.dart';
 import 'package:second_app/widgets/datePicker.dart';
 import 'package:second_app/widgets/inputText.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
@@ -108,16 +109,17 @@ class _soirState extends State<soir> {
       ],
       body: Column(
         children: [
-          const Center(
-            child: (true) ? InputText() : BtnSwitch(),
-          ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          Text('$value2'),
-          const SheetBtn(),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          const BtnSnackBar(),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          const DatePicker(),
+          // const Center(
+          //   child: (true) ? InputText() : BtnSwitch(),
+          // ),
+          // const Padding(padding: EdgeInsets.only(top: 20)),
+          // Text('$value2'),
+          // const SheetBtn(),
+          // const Padding(padding: EdgeInsets.only(top: 20)),
+          // const BtnSnackBar(),
+          // const Padding(padding: EdgeInsets.only(top: 20)),
+          // const DatePicker(),
+          const CardComponent(),
         ],
       ),
       bottomNavigationBar: const AppBarBtn(),
