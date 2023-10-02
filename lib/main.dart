@@ -9,6 +9,7 @@ import 'package:second_app/widgets/cardComponent.dart';
 import 'package:second_app/widgets/datePicker.dart';
 import 'package:second_app/widgets/inputText.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
+import 'package:second_app/widgets/staskComponent.dart';
 
 void main() {
   runApp(MyApp());
@@ -107,21 +108,23 @@ class _soirState extends State<soir> {
             onPressed: () => persistantBtnAction("delete"),
             icon: const Icon(Icons.delete)),
       ],
-      body: Column(
-        children: [
-          // const Center(
-          //   child: (true) ? InputText() : BtnSwitch(),
+      body:
+          // Column(
+          //   children: [
+          //     // const Center(
+          //     //   child: (true) ? InputText() : BtnSwitch(),
+          //     // ),
+          //     // const Padding(padding: EdgeInsets.only(top: 20)),
+          //     // Text('$value2'),
+          //     // const SheetBtn(),
+          //     // const Padding(padding: EdgeInsets.only(top: 20)),
+          //     // const BtnSnackBar(),
+          //     // const Padding(padding: EdgeInsets.only(top: 20)),
+          //     // const DatePicker(),
+          //     // const CardComponent(),
+          //   ],
           // ),
-          // const Padding(padding: EdgeInsets.only(top: 20)),
-          // Text('$value2'),
-          // const SheetBtn(),
-          // const Padding(padding: EdgeInsets.only(top: 20)),
-          // const BtnSnackBar(),
-          // const Padding(padding: EdgeInsets.only(top: 20)),
-          // const DatePicker(),
-          const CardComponent(),
-        ],
-      ),
+          const StackComponent(),
       bottomNavigationBar: const AppBarBtn(),
     );
   }
