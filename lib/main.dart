@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/widgets/ListViewComponent.dart';
 import 'package:second_app/widgets/appBarBtn.dart';
 import 'package:second_app/widgets/btnChecked.dart';
 import 'package:second_app/widgets/btnRadio.dart';
@@ -124,7 +125,24 @@ class _soirState extends State<soir> {
           //     // const CardComponent(),
           //   ],
           // ),
-          const StackComponent(),
+          // const StackComponent(),
+          Center(
+        child: Column(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Tableau de bord",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            ],
+          ),
+          Container(
+            height: 400,
+            width: 350,
+            // color: Colors.grey[300],
+            child: ListViewComponent(),
+          )
+        ]),
+      ),
       bottomNavigationBar: const AppBarBtn(),
     );
   }
