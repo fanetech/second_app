@@ -9,6 +9,7 @@ import 'package:second_app/widgets/btnSwitch.dart';
 import 'package:second_app/widgets/cardComponent.dart';
 import 'package:second_app/widgets/datePicker.dart';
 import 'package:second_app/widgets/inputText.dart';
+import 'package:second_app/widgets/listViewBuilderComponent.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
 import 'package:second_app/widgets/staskComponent.dart';
 
@@ -126,23 +127,24 @@ class _soirState extends State<soir> {
           //   ],
           // ),
           // const StackComponent(),
-          Center(
-        child: Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Tableau de bord",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          Container(
-            height: 400,
-            width: 350,
-            // color: Colors.grey[300],
-            child: ListViewComponent(),
-          )
-        ]),
-      ),
+          //     Center(
+          //   child: Column(children: [
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         Text("Tableau de bord",
+          //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          //       ],
+          //     ),
+          //     Container(
+          //       height: 400,
+          //       width: 350,
+          //       // color: Colors.grey[300],
+          //       child: ListViewComponent(),
+          //     )
+          //   ]),
+          // ),
+          const ListViewBuilderComponent(),
       bottomNavigationBar: const AppBarBtn(),
     );
   }
