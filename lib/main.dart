@@ -8,6 +8,7 @@ import 'package:second_app/widgets/btnSnackBar.dart';
 import 'package:second_app/widgets/btnSwitch.dart';
 import 'package:second_app/widgets/cardComponent.dart';
 import 'package:second_app/widgets/datePicker.dart';
+import 'package:second_app/widgets/gridViewComponant.dart';
 import 'package:second_app/widgets/inputText.dart';
 import 'package:second_app/widgets/listViewBuilderComponent.dart';
 import 'package:second_app/widgets/sheetBtn.dart';
@@ -144,7 +145,8 @@ class _soirState extends State<soir> {
           //     )
           //   ]),
           // ),
-          const ListViewBuilderComponent(),
+          // const ListViewBuilderComponent(),
+          const GridViewComponant(),
       bottomNavigationBar: const AppBarBtn(),
     );
   }
